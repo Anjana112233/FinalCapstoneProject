@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,14 +24,31 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-
-
+ <sec:authorize access="!isAuthenticated()">
                     <li class="nav-item">
                               <a class="nav-link" href="/auth/register1">User Registration</a>
                          </li>
+                      </sec:authorize>
                      <li class="nav-item">
                                 <a class="nav-link" href="/auth/login1">Login page</a>
                       </li>
+                    <sec:authorize access="hasAnyAuthority('ADMIN')">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/index">Admin</a>
+                                        </li>
+                     </sec:authorize>
+                      <sec:authorize access="isAuthenticated()">
+                     <li class="nav-item">
+                             <a class="nav-link" href="/auth/logout">Logout</a>
+                                     </li>
+                      <li class="nav-item">
+                                <a class="nav-link" href=""><sec:authentication property="principal.username" /></a>
+                           </li>
+                       </sec:authorize>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="/admin/index">Secured Request</a>
+                           </li>
+
 
             </ul>
         </div>
