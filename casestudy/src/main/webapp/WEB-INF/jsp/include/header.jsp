@@ -25,6 +25,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
  <sec:authorize access="!isAuthenticated()">
+                 <li class="nav-item">
+                    <a class="nav-link" href="/product/create">Create Product</a>
+                 </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/product/search">Search by product name</a>
+                  </li>
                     <li class="nav-item">
                               <a class="nav-link" href="/auth/register1">User Registration</a>
                          </li>
@@ -48,6 +54,8 @@
                               <li class="nav-item">
                                   <a class="nav-link" href="/admin/index">Secured Request</a>
                            </li>
+
+
 
 
             </ul>

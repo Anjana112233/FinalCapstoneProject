@@ -15,13 +15,13 @@
 <section class="bg-light1 pt-5 pb-5">
     <div class="container">
 <h1 class="pb-1"> Product search by name</h1>
-    <form action="/customer/search">
+    <form action="/product/search">
      <div class="row justify-content-center">
              <div class="col-3 col-sm-3 col-md-2 col-lg-2 text-end">
-      <label for="ProductNameSearch" class="col-3 col-sm-3 col-md-2 col-lg-2 text-end">Product Name</label>
+      <label for="Product Name" class="col-3 col-sm-3 col-md-2 col-lg-2 text-end">Product Name</label>
       </div>
       <div class="col-8 col-sm-9 col-md-6 col-lg-4">
-               <input type="text" name="productname" placeholder="Search by product Name" value="${ProducttNameSearch}">
+               <input type="text" name="productNameSearch" placeholder="Search by product Name" value="${search}">
                </div>
         <div class="row justify-content-center pt-4">
                      <div class="col-12 text-center">
@@ -39,7 +39,7 @@
                                <td>Image</td>
                                <td>Price</td>
                                 <td>Edit</td>
-
+                                <td>Detail</td>
 
                            </tr>
                            <c:forEach items="${productsVar}" var="product">
@@ -47,10 +47,11 @@
                                    <td>${product.id}</td>
                                    <td>${product.productName}</td>
                                    <td>${product.productDescription}</td>
-                                   <td>${product.imageUrl}</td>
-                                   <td>${product.price}</td>
                                    <td><img src="${product.imageUrl}" style="max-width:100px"></td>
-                                  <!-- <td><a href="/product/edit/${product.id}">Edit</a></td> -->
+                                   <td>${product.price}</td>
+
+                                  <td><a href="/product/edit/${product.id}">Edit</a></td>
+                                  <td><a href="/product/detail?id=${product.id}">Detail</a></td>
                                </tr>
                            </c:forEach>
                        </table>
