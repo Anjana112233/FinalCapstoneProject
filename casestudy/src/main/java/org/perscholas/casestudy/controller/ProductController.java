@@ -7,7 +7,10 @@ import org.perscholas.casestudy.formbean.CreateProductFormBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -49,7 +52,25 @@ public class ProductController {
         return response;
 
     }
+    @GetMapping("/product/search")
+    public ModelAndView search(@RequestParam(required = false) String search) {
+        ModelAndView response = new ModelAndView("product/search");
 
+        log.debug("In the product search container method: search parameter = " + search);
+
+        if(search != null){
+            List<Product> products = productDao.findByProductName(search);
+            response.addObject("productsVar", products);
+            response.addObject("search", search);
+            for (Product product : products) {
+                log.debug("product: id "+product.getId()+" Product Name "+product.getProductName()+" Product Description "+product.getProductDescription());
+                log.debug("product: image Url "+product.getImageUrl()+" price "+product.getPrice());
+            }
+
+        }
+
+        return response;
+    }
 
 
 }

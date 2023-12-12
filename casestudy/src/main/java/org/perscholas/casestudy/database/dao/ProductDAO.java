@@ -11,8 +11,11 @@ import java.util.List;
 public interface ProductDAO extends JpaRepository<Product, Long> {
     public Product findById(Integer id);
 
-   // @Query("Select p from product p where p.productName = :productName")
-   // List<Product> findByProductName(String productName);
+    @Query("Select p from Product p where p.productName = :productName")
+    List<Product> findByProductName(String productName);
+
+
+
 
 
 }

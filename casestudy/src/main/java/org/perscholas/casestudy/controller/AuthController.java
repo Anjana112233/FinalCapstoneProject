@@ -1,10 +1,12 @@
 package org.perscholas.casestudy.controller;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.perscholas.casestudy.database.entity.User;
 import org.perscholas.casestudy.database.service.UserService;
 import org.perscholas.casestudy.formbean.RegisterUserFormBean;
+import org.perscholas.casestudy.security.AuthenticatedUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -18,6 +20,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class AuthController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private AuthenticatedUserService authenticatedUserService;
+
 
     @GetMapping("/auth/login1")
     public ModelAndView login() {
@@ -33,7 +39,7 @@ public class AuthController {
     }
 
     @GetMapping("/auth/register1Submit")
-    public ModelAndView registerSubmit(@Valid RegisterUserFormBean form, BindingResult bindingResult) {
+    public ModelAndView registerSubmit(@Valid RegisterUserFormBean form, BindingResult bindingResult,  HttpSession session) {
         if (bindingResult.hasErrors()) {
             log.info("######################### In register user - has errors #########################");
             ModelAndView response = new ModelAndView("auth/register1");
@@ -50,6 +56,7 @@ public class AuthController {
         log.info("######################### In register user - no error found #########################");
 
         User u = userService.createNewUser(form);
+        authenticatedUserService.authenticateNewUser(session, u.getEmail(), form.getPassword());
 
         // the view name can either be a jsp file name or a redirect to another controller method
         ModelAndView response = new ModelAndView();
