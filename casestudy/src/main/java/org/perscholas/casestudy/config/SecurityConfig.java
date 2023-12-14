@@ -30,6 +30,7 @@ public class SecurityConfig {
                 .requestMatchers(
                         //I can do authenticated request on my order to know that whether user is logged in or not.
                        // new AntPathRequestMatcher("/order/**"),
+                        new AntPathRequestMatcher("/cart/**"),
                         new AntPathRequestMatcher("/admin/**"),
                         new AntPathRequestMatcher("/user/**")).authenticated()
                 .anyRequest().permitAll();
