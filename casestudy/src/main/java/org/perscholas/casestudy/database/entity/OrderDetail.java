@@ -14,8 +14,11 @@ public class OrderDetail {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "orderid")
-    private Integer orderId;
+   // @Column(name = "orderid")
+  //  private Integer orderId;
+   @ManyToOne(fetch = FetchType.LAZY, optional = false)
+   @JoinColumn(name = "orderid", nullable = false)
+   private Order order;
 
     @Column(name = "productid")
     private Integer productId;

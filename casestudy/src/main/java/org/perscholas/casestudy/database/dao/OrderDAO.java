@@ -13,7 +13,7 @@ import java.util.List;
 public interface OrderDAO extends JpaRepository<Order, Long> {
 
  // public Order findById(Integer id);
-  @Query("Select o from Order o where o.userid = :userId AND o.status = 'cart' ")
+  @Query("Select o from Order o where o.userId = :userId AND o.status = 'cart' ")
  Order findCartOrdersByUserId(Integer userId);
 
 

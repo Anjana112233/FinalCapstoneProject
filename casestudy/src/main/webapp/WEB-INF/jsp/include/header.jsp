@@ -31,6 +31,9 @@
                   <li class="nav-item">
                       <a class="nav-link" href="/product/search">Search by product name</a>
                   </li>
+                   <li class="nav-item">
+                             <a class="nav-link" href="/order/create">Create Order</a>
+                      </li>
                     <li class="nav-item">
                               <a class="nav-link" href="/auth/register1">User Registration</a>
                          </li>
