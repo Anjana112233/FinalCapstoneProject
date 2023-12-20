@@ -20,7 +20,9 @@
             <div class="card-body">
                 <h5 class="card-title"><a href="/product/detail?id=${product.id}">${product.productName}</a></h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <p class="card-test">$19.99</p>
+              <!--  <p class="card-test">$19.99</p> -->
+              <p class = "card-test"> src="${product.price}" </p>
+
                 <a href="/cart/additem?id=${product.id}" class="btn btn-primary">Add to cart</a>
             </div>
         </div>

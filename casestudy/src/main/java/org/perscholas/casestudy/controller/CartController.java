@@ -2,6 +2,7 @@ package org.perscholas.casestudy.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.perscholas.casestudy.database.dao.OrderDAO;
+import org.perscholas.casestudy.database.dao.OrderDetailDAO;
 import org.perscholas.casestudy.database.dao.ProductDAO;
 import org.perscholas.casestudy.database.entity.Order;
 import org.perscholas.casestudy.database.entity.OrderDetail;
@@ -29,6 +30,9 @@ public class CartController {
     private OrderDAO orderDao;
 
     @Autowired
+    private OrderDetailDAO orderDetailDAO;
+
+    @Autowired
     private AuthenticatedUserService authenticatedUserService;
 
     @GetMapping("/order/create")
@@ -39,14 +43,15 @@ public class CartController {
 
         return response;
     }
+
     @GetMapping("/order/createSubmit")
-    public ModelAndView createOrderSubmit(CreateOrderFormBean form){
+    public ModelAndView createOrderSubmit(CreateOrderFormBean form) {
         ModelAndView response = new ModelAndView("order/create");
 
-        System.out.println("orderDate: "+ form.getOrderdate());
-        System.out.println("requiredDate: "+ form.getRequireddate());
-        System.out.println("shippedDate: "+ form.getShippeddate());
-        System.out.println("status: "+ form.getStatus());
+        System.out.println("orderDate: " + form.getOrderdate());
+        System.out.println("requiredDate: " + form.getRequireddate());
+        System.out.println("shippedDate: " + form.getShippeddate());
+        System.out.println("status: " + form.getStatus());
 
 
         Order order = new Order();
@@ -62,6 +67,7 @@ public class CartController {
         return response;
 
     }
+
     @RequestMapping("/cart/additem")
     public ModelAndView additem(@RequestParam Integer id) {
         ModelAndView response = new ModelAndView("cart/additem");
@@ -73,11 +79,11 @@ public class CartController {
         Order order = orderDao.findCartOrdersByUserId(user.getId());
 
         //things to do
-        OrderDetail orderDetail = new OrderDetail();
-       // orderDetail.setProductId(form.getproductid);
-       // orderdetail.setuserId(form.getuserId);
-       // orderDetail.setQuantityOrdered(form.getquantityordered);
-       // orderDetail.getPriceEach(form.getPriceeach);
+        // OrderDetail orderDetail = new OrderDetail();
+        // orderDetail.setProductId(form.getproductid);
+        // orderdetail.setuserId(form.getuserId);
+        // orderDetail.setQuantityOrdered(form.getquantityordered);
+        // orderDetail.getPriceEach(form.getPriceeach);
         if (order == null) {
             order = new Order();
 
@@ -85,12 +91,21 @@ public class CartController {
             order.setUserId(user.getId());
         }
         order.setOrderDate(new Date());
-       // order.setRequiredDate(order.getRequiredDate());
-       // order.setShippedDate(order.getShippedDate());
+        // order.setRequiredDate(order.getRequiredDate());
+        // order.setShippedDate(order.getShippedDate());
         order.setStatus("cart");
         orderDao.save(order);
 
-            return response;
-        }
+        return response;
+    }
+
+    @RequestMapping("/cart/viewcart")
+    public ModelAndView viewcart(@RequestParam Integer id) {
+        ModelAndView response = new ModelAndView("cart/viewcart");
+
+      //  OrderDetail orderDetail = orderDetailDAO.findByOrderIdAndProductId(Order.getId(), Product.getId());
+        return response;
+
 
     }
+}
