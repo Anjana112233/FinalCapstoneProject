@@ -15,9 +15,9 @@
                crossorigin="anonymous"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Himalayan Traditional Store</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
 
@@ -34,18 +34,19 @@
                    <li class="nav-item">
                              <a class="nav-link" href="/order/create">Create Order</a>
                       </li>
-                    <li class="nav-item">
-                              <a class="nav-link" href="/auth/register1">User Registration</a>
-                         </li>
+
                       </sec:authorize>
+                       <li class="nav-item">
+                               <a class="nav-link" href="/auth/register1">User Registration</a>
+                        </li>
                      <li class="nav-item">
                                 <a class="nav-link" href="/auth/login1">Login page</a>
                       </li>
                     <sec:authorize access="hasAnyAuthority('ADMIN')">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/admin/index">Admin</a>
-                                        </li>
-                     </sec:authorize>
+                      <li class="nav-item">
+                            <a class="nav-link" href="/admin/index">Admin</a>
+                      </li>
+                    </sec:authorize>
                       <sec:authorize access="isAuthenticated()">
                      <li class="nav-item">
                              <a class="nav-link" href="/auth/logout">Logout</a>

@@ -40,7 +40,8 @@
                         <input type="text" class="form-control" id="password" name="password">
                     </div>
 
-                    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                  <!--  <button type="submit" class="btn btn-primary mt-4">Submit</button> -->
+                     <a href="/product/search" class="btn btn-primary">Submit</a>
                 </form>
 
             </div>

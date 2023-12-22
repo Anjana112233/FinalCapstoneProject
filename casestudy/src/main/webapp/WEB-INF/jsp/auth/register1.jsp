@@ -106,7 +106,8 @@
                                  </div>
                              </c:if>
 
-                    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                  <!--  <button type="submit" class="btn btn-primary mt-4">Submit</button> -->
+                    <a href="/auth/login1" class="btn btn-primary">Submit</a>
                 </form>
             </div>
         </div>

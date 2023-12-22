@@ -1,3 +1,12 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure that the container takes at least the full height of the viewport */
+}
+
+.search-page {
+    flex: 1; /* Make the content area flexible to fill the remaining space */
+}
 .bg-light1 {
     background-color: #f8f9fa;
 }
@@ -5,6 +14,74 @@
     background-color: #e9ecef;
 }
 
-.footer-bg-color {
-    background-color:#a4a7ab;
+.navbar-brand {
+    color:
 }
+   .search-page {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       background-image: url('/pub/images/main page.jpg');
+       background-size: cover;
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       color: #fff;
+       padding-top: 50px;
+       height: 100vh; /* Optionally set the height to fill the viewport */
+   }
+
+   .container.text-center {
+       margin-top: 20px;
+   }
+
+   .row.justify-content-center {
+       display: flex;
+       justify-content: center;
+   }
+   /* pub/css/global-style.css */
+
+   /* Existing navbar styles */
+   .navbar-light .navbar-toggler-icon {
+       background-color: #fff !important;
+   }
+
+   .navbar-light .navbar-brand,
+   .navbar-light .navbar-nav .nav-link {
+       color: #000 !important;
+   }
+
+   /* New styles for the custom-navbar class */
+   .custom-navbar.navbar-light {
+       background-color: #333 !important; /* Dark background color for the custom navbar */
+   }
+
+   .custom-navbar.navbar-light .navbar-toggler-icon {
+       background-color: #fff !important;
+   }
+
+   .custom-navbar.navbar-light .navbar-brand,
+   .custom-navbar.navbar-light .navbar-nav .nav-link {
+       color: #fff !important; /* White color for text on the custom navbar */
+   }
+   /* pub/css/global-style.css */
+
+   /* Other styles */
+
+   /* Table with white background */
+   .table-white-background {
+       background-color: #fff; /* White background color */
+   }
+
+   .footer-bg-color {
+       background-color: #333; /* Add your desired background color */
+       color: #fff; /* Add your desired text color */
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100px; /* Adjust the height based on your design */
+   }
+
+   .footer-bg-color div {
+       text-align: center;
+   }
