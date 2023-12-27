@@ -20,8 +20,13 @@ public class OrderDetail {
    @JoinColumn(name = "orderid", nullable = false)
    private Order order;
 
-    @Column(name = "productid")
-    private Integer productId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "productid", nullable = false)
+    private Product product;
+
+
+    // @Column(name = "productid")
+   // private Integer productId;
 
     @Column(name = "quantityordered")
     private Integer quantityOrdered;

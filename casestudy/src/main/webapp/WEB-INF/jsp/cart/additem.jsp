@@ -1,35 +1,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/pub/css/detail.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <jsp:include page="../include/header.jsp"/>
 
+<div class="container-fluid d-flex align-items-center justify-content-center" style="min-height: 78vh;">
+    <section>
+        <table>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" style="max-height: 200px" src="${product.imageUrl}" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title"><a href="/product/detail?id=${product.id}">${product.productName}</a></h5>
+                    <p class="card-text">${product.productDescription} </p>
+                 <div class="container">
+                 		<span class="fa fa-star checked"></span>
+                 		<span class="fa fa-star checked"></span>
+                 		<span class="fa fa-star checked"></span>
+                 		<span class="fa fa-star checked"></span>
+                 		<span class="fa fa-star checked"></span>
+                 	</div>
+                    <p class="card-test"> Price= $${product.price} </p>
+                    <p class="card-test"> Quantity= ${product.quantity} </p>
 
-<section>
-    <div class="bg-light2 pt-5 pb-5">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1 class="m-0">Add to cart</h1>
+
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-
-
-<section>
-    <table>
-        <div class="card" style="width: 18rem;">
-         <img class="card-img-top" style="max-height:500px" src="${product.imageUrl}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="/product/detail?id=${product.id}">${product.productName}</a></h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <p class="card-test">$19.99</p>
-                        <p class="card-test">Quantity</p>
-
-
-              <!--  <a href="/cart/additem?id=${product.id}" class="btn btn-primary">Add to cart</a> -->
-            </div>
-        </div>
-
-    </table>
-</section>
+        </table>
+    </section>
+</div>
 
 
 

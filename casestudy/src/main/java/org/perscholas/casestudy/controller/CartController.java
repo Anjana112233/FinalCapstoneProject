@@ -72,8 +72,8 @@ public class CartController {
     public ModelAndView additem(@RequestParam Integer id) {
         ModelAndView response = new ModelAndView("cart/additem");
 
-        // Product product = productDao.findById(id);
-        //   response.addObject("product", product);
+       //  Product product = productDao.findById(id);
+        // response.addObject("product", product);
 
         User user = authenticatedUserService.loadCurrentUser();
         Order order = orderDao.findCartOrdersByUserId(user.getId());
@@ -87,9 +87,9 @@ public class CartController {
         if (order == null) {
             order = new Order();
 
-
             order.setUserId(user.getId());
         }
+
         order.setOrderDate(new Date());
         // order.setRequiredDate(order.getRequiredDate());
         // order.setShippedDate(order.getShippedDate());
@@ -99,11 +99,11 @@ public class CartController {
         return response;
     }
 
-    @RequestMapping("/cart/viewcart")
+    @RequestMapping("/cart/additem")
     public ModelAndView viewcart(@RequestParam Integer id) {
         ModelAndView response = new ModelAndView("cart/viewcart");
 
-      //  OrderDetail orderDetail = orderDetailDAO.findByOrderIdAndProductId(Order.getId(), Product.getId());
+      //OrderDetail orderDetail = orderDetailDAO.findByOrderIdAndProductId(Order.getId(), Product.getId());
         return response;
 
 

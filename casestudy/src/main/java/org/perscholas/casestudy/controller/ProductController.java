@@ -41,8 +41,15 @@ public class ProductController {
         System.out.println("imageUrl: "+ form.getImageUrl());
         System.out.println("price: "+ form.getPrice());
 
+        //if the form id is null then this is a create, if it is not null then it is an edit
+        //first we attempt to load it from the database
+        //if it is found in the database we know the incoming id was valid so we can edit it
+        Product product = productDao.findById(form.getId());
+        if (product == null){
+            product = new Product();
 
-        Product product = new Product();
+        }
+       // Product product = new Product();
         product.setProductName(form.getProductName());
         product.setProductDescription(form.getProductDescription());
         product.setImageUrl(form.getImageUrl());
@@ -106,9 +113,6 @@ public class ProductController {
         response.addObject("form", form);
         return response;
     }
-
-
-
     @RequestMapping("/product/detail")
     public ModelAndView detail(@RequestParam Integer id) {
         ModelAndView response = new ModelAndView("product/detail");

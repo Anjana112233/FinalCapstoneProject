@@ -54,10 +54,10 @@
                       <li class="nav-item">
                                 <a class="nav-link" href=""><sec:authentication property="principal.username" /></a>
                            </li>
-                       </sec:authorize>
+                     <!--  </sec:authorize>
                               <li class="nav-item">
                                   <a class="nav-link" href="/admin/index">Secured Request</a>
-                           </li>
+                           </li> -->
 
 
 

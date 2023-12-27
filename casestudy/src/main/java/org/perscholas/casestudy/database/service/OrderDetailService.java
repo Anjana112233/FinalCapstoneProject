@@ -33,7 +33,7 @@ public class OrderDetailService {
            // orderDetail.setQuantityOrdered(quantityordered);
         } else {
             orderDetail = new OrderDetail();
-            orderDetail.setProductId(form.getProductid());
+            orderDetail.setProduct(form.getProduct());
             orderDetail.setOrder(form.getOrder());
             orderDetail.setQuantityOrdered(form.getQuantityordered()+1);
             orderDetail.setPriceEach(form.getPriceeach());

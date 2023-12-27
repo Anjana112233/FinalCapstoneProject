@@ -11,7 +11,7 @@
     </div>
 </section>
 
-<c:if test="${param['error'] eq ''}">
+ <c:if test="${param['error'] eq ''}">
     <section class="pt-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -40,8 +40,8 @@
                         <input type="text" class="form-control" id="password" name="password">
                     </div>
 
-                  <!--  <button type="submit" class="btn btn-primary mt-4">Submit</button> -->
-                     <a href="/product/search" class="btn btn-primary">Submit</a>
+                  <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                    <!-- <a href="/product/search" class="btn btn-primary">Submit</a> -->
                 </form>
 
             </div>

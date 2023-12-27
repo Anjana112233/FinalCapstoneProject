@@ -8,6 +8,26 @@ body {
      }
 
 }
+/* Add this style for the yellow star rating */
+.static-star-rating {
+    color: yellow; /* Set the color to yellow */
+}
+
+.static-star-rating .fa-star {
+    font-size: 20px; /* Adjust the font size as needed */
+}
+
+.static-star-rating .fa-star.checked {
+    color: #FFD700; /* Set the color to yellow for checked stars */
+}
+ .checked {
+	  color: yellow;
+	}
+	.fa-star {
+	   font-size: 20px;
+	}
+
+
 
 footer {
     margin-top: auto;
