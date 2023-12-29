@@ -19,7 +19,8 @@
                  		<span class="fa fa-star checked"></span>
                  	</div>
                     <p class="card-test"> Price= $${product.price} </p>
-                    <p class="card-test"> Quantity= ${product.quantity} </p>
+
+                     <a href="/cart/viewcart?id=${product.id}" class="btn btn-primary">View to cart</a>
 
 
                 </div>

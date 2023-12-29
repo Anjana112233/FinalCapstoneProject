@@ -6,7 +6,7 @@
     <div class="bg-light2 pt-5 pb-5">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="m-0">Add to cart</h1>
+                <h1 class="m-0">View to cart</h1>
             </div>
         </div>
     </div>

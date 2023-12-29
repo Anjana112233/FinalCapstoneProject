@@ -1,5 +1,6 @@
 package org.perscholas.casestudy.controller;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.perscholas.casestudy.database.dao.OrderDAO;
 import org.perscholas.casestudy.database.dao.OrderDetailDAO;
@@ -8,6 +9,8 @@ import org.perscholas.casestudy.database.entity.Order;
 import org.perscholas.casestudy.database.entity.OrderDetail;
 import org.perscholas.casestudy.database.entity.Product;
 import org.perscholas.casestudy.database.entity.User;
+import org.perscholas.casestudy.database.service.OrderDetailService;
+import org.perscholas.casestudy.formbean.CreateOrderDetailFormBean;
 import org.perscholas.casestudy.formbean.CreateOrderFormBean;
 import org.perscholas.casestudy.formbean.CreateProductFormBean;
 import org.perscholas.casestudy.security.AuthenticatedUserService;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -31,6 +35,9 @@ public class CartController {
 
     @Autowired
     private OrderDetailDAO orderDetailDAO;
+
+    @Autowired
+    private OrderDetailService orderDetailService;
 
     @Autowired
     private AuthenticatedUserService authenticatedUserService;
@@ -72,18 +79,15 @@ public class CartController {
     public ModelAndView additem(@RequestParam Integer id) {
         ModelAndView response = new ModelAndView("cart/additem");
 
-       //  Product product = productDao.findById(id);
-        // response.addObject("product", product);
+        log.info("In add item with incoming args");
+         Product product = productDao.findById(id);
+        log.info("In add item with product incoming args");
+        response.addObject("product", product);
 
         User user = authenticatedUserService.loadCurrentUser();
         Order order = orderDao.findCartOrdersByUserId(user.getId());
 
-        //things to do
-        // OrderDetail orderDetail = new OrderDetail();
-        // orderDetail.setProductId(form.getproductid);
-        // orderdetail.setuserId(form.getuserId);
-        // orderDetail.setQuantityOrdered(form.getquantityordered);
-        // orderDetail.getPriceEach(form.getPriceeach);
+
         if (order == null) {
             order = new Order();
 
@@ -96,12 +100,21 @@ public class CartController {
         order.setStatus("cart");
         orderDao.save(order);
 
+
+
+   OrderDetail orderDetail = orderDetailDAO.findByOrderIdAndProductId(order.getId(), product.getId());
+
+
+
         return response;
     }
 
-    @RequestMapping("/cart/additem")
-    public ModelAndView viewcart(@RequestParam Integer id) {
+    @RequestMapping("/cart/viewcart")
+    public ModelAndView viewcart(@Valid CreateOrderDetailFormBean form) {
         ModelAndView response = new ModelAndView("cart/viewcart");
+        orderDetailService.createOrderDetail(form);
+
+
 
       //OrderDetail orderDetail = orderDetailDAO.findByOrderIdAndProductId(Order.getId(), Product.getId());
         return response;
