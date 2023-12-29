@@ -18,7 +18,7 @@
                  		<span class="fa fa-star checked"></span>
                  	</div>
                     <p class="card-test"> Price= $${product.price} </p>
-                    <a href="/cart/additem?id=${product.id}" class="btn btn-primary">Add to cart</a>
+                    <a href="/cart/addtocart?id=${product.id}" class="btn btn-primary">Add to cart</a>
                 </div>
             </div>
         </table>

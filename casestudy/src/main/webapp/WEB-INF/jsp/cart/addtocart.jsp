@@ -10,7 +10,7 @@
                 <img class="card-img-top" style="max-height: 200px" src="${product.imageUrl}" alt="Card image cap">
                 <div class="card-body text-center">
                     <h5 class="card-title"><a href="/product/detail?id=${product.id}">${product.productName}</a></h5>
-                    <p class="card-text">${product.productDescription} </p>
+                    <p class="card-text">${product.productDescription} </p> 
                  <div class="container">
                  		<span class="fa fa-star checked"></span>
                  		<span class="fa fa-star checked"></span>
@@ -19,8 +19,18 @@
                  		<span class="fa fa-star checked"></span>
                  	</div>
                     <p class="card-test"> Price= $${product.price} </p>
+                  <!--   <p class="card-test"> Quantity: ${orderdetail.quantityordered} </p> -->
+                   <label for="quantity">Quantity: </label>
+                                      <select id="quantity" name="quantity">
+                                          <c:forEach begin="1" end="9" var="quantityOption">
+                                              <option value="${quantityOption}" ${quantityOption == orderdetail.quantityordered ? 'selected' : ''}>
+                                                  ${quantityOption}
+                                              </option>
+                                          </c:forEach>
+                                      </select>
 
-                     <a href="/cart/viewcart?id=${product.id}" class="btn btn-primary">View to cart</a>
+
+                  <!--   <a href="/cart/viewcart?id=${product.id}" class="btn btn-primary">View to cart</a> -->
 
 
                 </div>
@@ -28,8 +38,5 @@
         </table>
     </section>
 </div>
-
-
-
 
 <jsp:include page="../include/footer.jsp"/>

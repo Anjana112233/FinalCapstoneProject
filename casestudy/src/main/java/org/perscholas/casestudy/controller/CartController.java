@@ -75,9 +75,9 @@ public class CartController {
 
     }
 
-    @RequestMapping("/cart/additem")
+    @RequestMapping("/cart/addtocart")
     public ModelAndView additem(@RequestParam Integer id) {
-        ModelAndView response = new ModelAndView("cart/additem");
+        ModelAndView response = new ModelAndView("cart/addtocart");
 
         log.info("In add item with incoming args");
          Product product = productDao.findById(id);
@@ -100,11 +100,7 @@ public class CartController {
         order.setStatus("cart");
         orderDao.save(order);
 
-
-
    OrderDetail orderDetail = orderDetailDAO.findByOrderIdAndProductId(order.getId(), product.getId());
-
-
 
         return response;
     }
@@ -113,10 +109,7 @@ public class CartController {
     public ModelAndView viewcart(@Valid CreateOrderDetailFormBean form) {
         ModelAndView response = new ModelAndView("cart/viewcart");
         orderDetailService.createOrderDetail(form);
-
-
-
-      //OrderDetail orderDetail = orderDetailDAO.findByOrderIdAndProductId(Order.getId(), Product.getId());
+        response.addObject("form", form);
         return response;
 
 
