@@ -3,6 +3,7 @@ package org.perscholas.casestudy.database.service;
 import lombok.extern.slf4j.Slf4j;
 import org.perscholas.casestudy.database.dao.OrderDAO;
 import org.perscholas.casestudy.database.dao.OrderDetailDAO;
+import org.perscholas.casestudy.database.dao.ProductDAO;
 import org.perscholas.casestudy.database.entity.OrderDetail;
 import org.perscholas.casestudy.formbean.CreateOrderDetailFormBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,35 @@ public class OrderDetailService {
     private OrderDAO orderDAO;
 
     @Autowired
+    private ProductDAO productDAO;
+
+    @Autowired
     private OrderDetailDAO orderDetailDAO;
 
-    public OrderDetail createOrderDetail(CreateOrderDetailFormBean form) {
+    public OrderDetail createOrderDetail(Integer productId, Integer orderId, Integer quantityOrdered, Double priceEach) {
+        log.debug("orderId: " + orderId);
+        log.info("productId: " + productId);
+        log.info("quantityOrdered: " + quantityOrdered);
+        log.info("priceEach: " + priceEach);
+
+        OrderDetail orderDetail = orderDetailDAO.findByOrderIdAndProductId(orderId, productId);
+
+        if (orderDetail != null) {
+            orderDetail.setQuantityOrdered(orderDetail.getQuantityOrdered() + 1);
+        } else {
+            orderDetail = new OrderDetail();
+
+            orderDetail.setProduct(productDAO.findById(productId));
+            orderDetail.setOrder(orderDAO.findById(orderId));
+            orderDetail.setQuantityOrdered(quantityOrdered + 1);
+        }
+
+        return orderDetailDAO.save(orderDetail);
+    }
+}
+
+
+  /*  public OrderDetail createOrderDetail(CreateOrderDetailFormBean form) {
         log.debug("id: " + form.getId());
         log.debug("orderId: " + form.getOrderid());
         log.info("productId: " + form.getProductid());
@@ -43,6 +70,6 @@ public class OrderDetailService {
         }
 
 
-    }
+    }*/
 
 
