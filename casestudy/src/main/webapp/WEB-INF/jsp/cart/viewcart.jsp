@@ -2,13 +2,14 @@
 <jsp:include page="../include/header.jsp"/>
 
 
-<section>
-    <div class="bg-light2 pt-5 pb-5">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1 class="m-0">View to cart</h1>
-            </div>
-        </div>
-    </div>
-</section>
+ <h2>Order Details</h2>
+
+    <c:forEach var="orderDetail" items="${orderDetails}">
+        <p>Product ID: ${orderDetail.product.id}</p>
+        <p>Order ID: ${orderDetail.order.id}</p>
+        <p>Quantity Ordered: ${orderDetail.quantityOrdered}</p>
+        <p>Price Each: ${orderDetail.priceEach}</p>
+        <!-- Add more details as needed -->
+    </c:forEach>
+
 <jsp:include page="../include/footer.jsp"/>

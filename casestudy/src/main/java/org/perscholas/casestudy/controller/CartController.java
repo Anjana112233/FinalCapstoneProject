@@ -10,16 +10,15 @@ import org.perscholas.casestudy.database.entity.OrderDetail;
 import org.perscholas.casestudy.database.entity.Product;
 import org.perscholas.casestudy.database.entity.User;
 import org.perscholas.casestudy.database.service.OrderDetailService;
+import org.perscholas.casestudy.database.service.OrderService;
 import org.perscholas.casestudy.formbean.CreateOrderDetailFormBean;
 import org.perscholas.casestudy.formbean.CreateOrderFormBean;
 import org.perscholas.casestudy.formbean.CreateProductFormBean;
 import org.perscholas.casestudy.security.AuthenticatedUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
@@ -36,6 +35,9 @@ public class CartController {
 
     @Autowired
     private OrderDetailDAO orderDetailDAO;
+
+    @Autowired
+    private OrderService orderService;
 
     @Autowired
     private OrderDetailService orderDetailService;
@@ -100,37 +102,29 @@ public class CartController {
         // order.setShippedDate(order.getShippedDate());
         order.setStatus("cart");
         orderDao.save(order);
+        orderDetailService.createOrderDetail(product.getId(), order.getId(), 1);
         return response;
 
     }
+    @RequestMapping("cart/viewcart")
+    public ModelAndView viewcart() {
+        ModelAndView response = new ModelAndView("cart/viewcart");
+        User user = authenticatedUserService.loadCurrentUser();
+        //retrieve a current cart
+        Order order= orderDao.findCartOrdersByUserId(user.getId());
 
-  // OrderDetail orderDetail = orderDetailDAO.findByOrderIdAndProductId(order.getId(), product.getId());
-        @GetMapping("/cart/viewcart")
-        public ModelAndView addToCart(@RequestParam(required = false) Integer productId,
-                @RequestParam(required = false) Integer orderId,
-                @RequestParam(required = false) Integer quantityOrdered,
-                @RequestParam(required = false) Double priceEach) {
+     /*   if(order == null){
+            response.setViewName("redirect:/product/search/");
+            return response;
+        }*/
+        Product product = productDao.findById(order.getUserId());
 
-
-            // Call the service method to create the order detail
-            OrderDetail orderDetail = orderDetailService.createOrderDetail(productId, orderId, quantityOrdered, priceEach);
-
-
-            // Use ModelAndView to specify the view name and add model attributes
-            ModelAndView modelAndView = new ModelAndView("cart/viewcart"); // Redirect to the cart page or any other appropriate page
-            modelAndView.addObject("orderDetail", orderDetail); // You can add more attributes as needed
-
-            return modelAndView;
-        }
+        List<OrderDetail> Product = orderDetailDAO.findByOrderIdAndProductId(order.getId(), product.getId());
+        response.addObject("order", order);
+        response.addObject("product", product);
+        return response;
 
     }
-
-   /* @RequestMapping("/cart/viewcart")
-    public ModelAndView viewcart(@Valid CreateOrderDetailFormBean form) {
-        ModelAndView response = new ModelAndView("cart/viewcart");
-        orderDetailService.createOrderDetail(form);
-        response.addObject("form", form);
-        return response;*/
-
+}
 
 

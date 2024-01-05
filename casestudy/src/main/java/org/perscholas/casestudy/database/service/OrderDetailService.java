@@ -22,11 +22,10 @@ public class OrderDetailService {
     @Autowired
     private OrderDetailDAO orderDetailDAO;
 
-    public OrderDetail createOrderDetail(Integer productId, Integer orderId, Integer quantityOrdered, Double priceEach) {
+    public OrderDetail createOrderDetail(Integer productId, Integer orderId, Integer quantityOrdered) {
         log.debug("orderId: " + orderId);
         log.info("productId: " + productId);
         log.info("quantityOrdered: " + quantityOrdered);
-        log.info("priceEach: " + priceEach);
 
         OrderDetail orderDetail = orderDetailDAO.findByOrderIdAndProductId(orderId, productId);
 
@@ -37,7 +36,7 @@ public class OrderDetailService {
 
             orderDetail.setProduct(productDAO.findById(productId));
             orderDetail.setOrder(orderDAO.findById(orderId));
-            orderDetail.setQuantityOrdered(quantityOrdered + 1);
+            orderDetail.setQuantityOrdered(quantityOrdered);
         }
 
         return orderDetailDAO.save(orderDetail);
