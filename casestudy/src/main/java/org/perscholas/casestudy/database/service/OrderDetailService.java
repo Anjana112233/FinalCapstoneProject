@@ -31,6 +31,7 @@ public class OrderDetailService {
 
         if (orderDetail != null) {
             orderDetail.setQuantityOrdered(orderDetail.getQuantityOrdered() + 1);
+            orderDetailDAO.save(orderDetail);
         } else {
             orderDetail = new OrderDetail();
 

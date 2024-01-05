@@ -113,15 +113,16 @@ public class CartController {
         //retrieve a current cart
         Order order= orderDao.findCartOrdersByUserId(user.getId());
 
-     /*   if(order == null){
+       if(order == null){
             response.setViewName("redirect:/product/search/");
             return response;
-        }*/
-        Product product = productDao.findById(order.getUserId());
-
-        List<OrderDetail> Product = orderDetailDAO.findByOrderIdAndProductId(order.getId(), product.getId());
+        }
+        OrderDetail orderDetail = OrderDetailDAO.viewcart(order.getId());
+        OrderDetail orderDetail1 = OrderDetailDAO.carttotal(order.getId());
         response.addObject("order", order);
-        response.addObject("product", product);
+        response.addObject("orderdetail", orderDetail);
+        response.addObject("orderdetail1", orderDetail1);
+
         return response;
 
     }

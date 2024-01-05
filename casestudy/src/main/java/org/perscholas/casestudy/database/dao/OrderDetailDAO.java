@@ -14,9 +14,20 @@ public interface OrderDetailDAO extends JpaRepository<OrderDetail, Long> {
 
     public OrderDetail findById(Integer id);
     @Query("SELECT od FROM OrderDetail od WHERE od.order.id = :orderId AND od.product.id = :productId")
-  List <OrderDetail> findByOrderIdAndProductId(Integer orderId, Integer productId);
+   OrderDetail findByOrderIdAndProductId(Integer orderId, Integer productId);
 
+    @Query("Select OrderDetail.id, productname , quantityordered, price, price*quantityordered as producttotal " +
+            "from OrderDetail inner join Product on OrderDetail.productid = Product.productid" +
+            "where orderId = :orderId  ")
+    static OrderDetail viewcart(Integer orderId) {
+        return null;
+    }
 
+    @Query("Select sum(price*quantityordered) from OrderDetail inner join Product on OrderDetail.productid = Product.productid " +
+            "where orderId = :orderId ")
+    static OrderDetail carttotal(Integer orderId) {
+        return null;
+    }
 
 
 }
