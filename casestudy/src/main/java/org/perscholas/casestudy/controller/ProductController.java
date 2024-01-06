@@ -85,6 +85,9 @@ public class ProductController {
                 log.debug("product: image Url "+product.getImageUrl()+" price "+product.getPrice());
             }
 
+        } else {
+            List<Product> products = productDao.findAll().subList(0, 3);
+            response.addObject("productsVar", products);
         }
 
         return response;

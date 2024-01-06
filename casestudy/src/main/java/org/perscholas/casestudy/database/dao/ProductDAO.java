@@ -13,7 +13,7 @@ import java.util.List;
 public interface ProductDAO extends JpaRepository<Product, Long> {
     public Product findById(Integer id);
 
-    @Query("Select p from Product p where p.productName LIKE :productName")
+    @Query("Select p from Product p where lower(p.productName) LIKE lower(%:productName%)")
     List<Product> findByProductName(String productName);
 
 

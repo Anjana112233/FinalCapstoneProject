@@ -12,7 +12,6 @@
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Price</th>
-                    <th>Total Price</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +25,7 @@
             </tbody>
         </table>
     </div>
+    <a href="/cart/checkout" class="btn btn-primary">Checkout</a>
 
 
 <jsp:include page="../include/footer.jsp"/>
