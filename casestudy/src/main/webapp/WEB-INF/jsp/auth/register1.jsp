@@ -34,7 +34,7 @@
 
                     <div class="mt-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="text" class="form-control" id="password" name="password" value="${form.password}">
+                        <input type="password" class="form-control" id="password" name="password" value="${form.password}">
                     </div>
                     <c:if test="${errors.hasFieldErrors('password')}">
                         <div style="color:red">
@@ -47,7 +47,7 @@
 
                     <div class="mt-3">
                         <label for="confirmPassword" class="form-label">Confirm Password</label>
-                        <input type="text" class="form-control" id="confirmPassword" name="confirmPassword" value="${form.confirmPassword}">
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" value="${form.confirmPassword}">
                     </div>
                     <c:if test="${errors.hasFieldErrors('confirmPassword')}">
                         <div style="color:red">
@@ -106,8 +106,8 @@
                                  </div>
                              </c:if>
 
-                  <!--  <button type="submit" class="btn btn-primary mt-4">Submit</button> -->
-                    <a href="/auth/login1" class="btn btn-primary">Submit</a>
+                  <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                    <!-- <a href="/auth/login1" class="btn btn-primary">Submit</a> -->
                 </form>
             </div>
         </div>

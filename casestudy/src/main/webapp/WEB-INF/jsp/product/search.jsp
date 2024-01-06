@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/pub/css/global-style.css">
 <jsp:include page="../include/header.jsp"/>
 
@@ -19,15 +20,21 @@
 
 
         <c:if test="${not empty productsVar}">
+             <c:if test="${not noSearch}">
             <h1> Products Found ${productsVar.size()}</h1>
+            </c:if>
               <table class="table table-white-background">
                    <tr>
                         <td>Id</td>
                         <td>Product Name</td>
+                        <c:if test="${not noSearch}">
                          <td>Product Description</td>
+                         </c:if>
                           <td>Image</td>
                           <td>Price</td>
+                          <sec:authorize access="hasAnyAuthority('ADMIN')">
                           <td>Edit</td>
+                          </sec:authorize>
                           <td>Detail</td>
 
                    </tr>
@@ -35,11 +42,14 @@
                      <tr>
                         <td>${product.id}</td>
                         <td>${product.productName}</td>
+                        <c:if test="${not noSearch}">
                         <td>${product.productDescription}</td>
+                        </c:if>
                         <td><img src="${product.imageUrl}" style="max-width:100px"></td>
                         <td>${product.price}</td>
-
+                        <sec:authorize access="hasAnyAuthority('ADMIN')">
                          <td><a href="/product/edit/${product.id}">Edit</a></td>
+                         </sec:authorize>
                          <td><a href="/product/detail?id=${product.id}">Detail</a></td>
                      </tr>
                   </c:forEach>

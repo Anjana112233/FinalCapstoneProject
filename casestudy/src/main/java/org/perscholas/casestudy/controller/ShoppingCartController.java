@@ -102,6 +102,12 @@ public class ShoppingCartController {
         return response;
     }
 
+    @GetMapping("/order/details")
+    public ModelAndView orders(){
+        ModelAndView response = new ModelAndView("order/details");
+        User user = authenticatedUserService.loadCurrentUser();
+        return response;
+    }
 
 }
 

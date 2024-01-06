@@ -24,7 +24,7 @@
                         <span class="fa fa-star checked"></span>
                     </div>
 
-                    <!-- Dropdown for Quantity -->
+                    <!-- Dropdown for Quantity
                     <label for="quantity">Quantity: </label>
                     <select id="quantity" name="quantity">
                         <c:forEach begin="1" end="9" var="quantityOption">
@@ -33,6 +33,7 @@
                             </option>
                         </c:forEach>
                     </select>
+                    -->
 
                     <!-- Add to Cart Button -->
                   <!-- <a href="/cart/viewcart?id=${product.id}&quantity=${orderdetail.quantityordered}" class="btn btn-primary">viewcart</a> -->

@@ -87,6 +87,7 @@ public class ProductController {
 
         } else {
             List<Product> products = productDao.findAll().subList(0, 3);
+            response.addObject("noSearch", true);
             response.addObject("productsVar", products);
         }
 
