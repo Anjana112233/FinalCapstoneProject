@@ -77,6 +77,10 @@ public class ShoppingCartController {
         User user = authenticatedUserService.loadCurrentUser();
         List<CartItem> cartItems = shoppingCartServices.listCartItems(user);
 
+        if(cartItems.isEmpty()) {
+            return response;
+        }
+
         Order order = new Order();
         order.setOrderDate(new Date());
         order.setStatus("Order Placed");
@@ -106,6 +110,14 @@ public class ShoppingCartController {
     public ModelAndView orders(){
         ModelAndView response = new ModelAndView("order/details");
         User user = authenticatedUserService.loadCurrentUser();
+
+        Order order = orderDAO.findLatestOrderByUserId(user.getId());
+
+        List<OrderDetail> orderDetails = orderDetailDAO.findByOrder(order);
+
+        response.addObject("order", order);
+        response.addObject("orderDetails", orderDetails);
+
         return response;
     }
 

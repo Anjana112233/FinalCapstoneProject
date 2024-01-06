@@ -6,6 +6,7 @@
     <h1 class="mb-4">Your Shopping Cart</h1>
     </div>
 
+    <c:if test="${not empty cartItems}">
      <table class="table">
             <thead>
                 <tr>
@@ -26,6 +27,11 @@
         </table>
     </div>
     <a href="/cart/checkout" class="btn btn-primary">Checkout</a>
+    </c:if>
+
+    <c:if test="${empty cartItems}">
+     <p>Your shopping cart is empty.</p>
+    </c:if>
 
 
 <jsp:include page="../include/footer.jsp"/>

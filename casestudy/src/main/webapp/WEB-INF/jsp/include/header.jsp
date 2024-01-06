@@ -50,7 +50,7 @@
                            <a class="nav-link" href="/cart/shopping_cart">View Cart</a>
                                    </li>
                       <li class="nav-item">
-                             <a class="nav-link" href="/order/details">View Orders</a>
+                             <a class="nav-link" href="/order/details">View Last Order</a>
                                      </li>
                      <li class="nav-item">
                              <a class="nav-link" href="/auth/logout">Logout</a>

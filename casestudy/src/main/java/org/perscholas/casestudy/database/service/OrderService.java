@@ -19,9 +19,9 @@ public class OrderService {
     @Autowired
     private AuthenticatedUserService authenticatedUserService;
 
-    public Order findCartOrdersByUserId(User user ) {
-        return orderDAO.findCartOrdersByUserId(user.getId());
-    }
+//    public Order findCartOrdersByUserId(User user ) {
+//        return orderDAO.findCartOrdersByUserId(user.getId());
+//    }
 
     public Order createNewOrder(){
         Order order = new Order();

@@ -14,6 +14,9 @@ import java.util.List;
 public interface OrderDetailDAO extends JpaRepository<OrderDetail, Long> {
 
     public OrderDetail findById(Integer id);
+
+    public List<OrderDetail> findByOrder(Order order);
+
     @Query("SELECT od FROM OrderDetail od WHERE od.order.id = :orderId AND od.product.id = :productId")
    OrderDetail findByOrderIdAndProductId(Integer orderId, Integer productId);
 

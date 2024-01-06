@@ -129,26 +129,26 @@ public class CartController {
 //        return response;
 
     }
-    @RequestMapping("cart/viewcart")
-    public ModelAndView viewcart() {
-        ModelAndView response = new ModelAndView("cart/viewcart");
-        User user = authenticatedUserService.loadCurrentUser();
-        //retrieve a current cart
-        Order order= orderDao.findCartOrdersByUserId(user.getId());
-
-       if(order == null){
-            response.setViewName("redirect:/product/search/");
-            return response;
-        }
-        OrderDetail orderDetail = orderDetailDAO.viewcart(order.getId());
-        OrderDetail orderDetail1 = orderDetailDAO.carttotal(order.getId());
-        response.addObject("order", order);
-        response.addObject("orderdetail", orderDetail);
-        response.addObject("orderdetail1", orderDetail1);
-
-        return response;
-
-    }
+//    @RequestMapping("cart/viewcart")
+//    public ModelAndView viewcart() {
+//        ModelAndView response = new ModelAndView("cart/viewcart");
+//        User user = authenticatedUserService.loadCurrentUser();
+//        //retrieve a current cart
+//        Order order= orderDao.findCartOrdersByUserId(user.getId());
+//
+//       if(order == null){
+//            response.setViewName("redirect:/product/search/");
+//            return response;
+//        }
+//        OrderDetail orderDetail = orderDetailDAO.viewcart(order.getId());
+//        OrderDetail orderDetail1 = orderDetailDAO.carttotal(order.getId());
+//        response.addObject("order", order);
+//        response.addObject("orderdetail", orderDetail);
+//        response.addObject("orderdetail1", orderDetail1);
+//
+//        return response;
+//
+//    }
 }
 
 
