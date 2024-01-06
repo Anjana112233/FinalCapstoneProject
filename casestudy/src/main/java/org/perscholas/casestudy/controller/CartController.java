@@ -95,14 +95,17 @@ public class CartController {
             order = new Order();
 
             order.setUserId(user.getId());
-        }
 
-        order.setOrderDate(new Date());
-        // order.setRequiredDate(order.getRequiredDate());
-        // order.setShippedDate(order.getShippedDate());
-        order.setStatus("cart");
-        orderDao.save(order);
-        orderDetailService.createOrderDetail(product.getId(), order.getId(), 1);
+
+            order.setOrderDate(new Date());
+            // order.setRequiredDate(order.getRequiredDate());
+            // order.setShippedDate(order.getShippedDate());
+            order.setStatus("cart");
+            orderDao.save(order);
+        }
+       orderDetailService.createOrderDetail(product.getId(), order.getId(), 1);
+        //response.addObject("order", order);
+      //  response.addObject("product", product);
         return response;
 
     }
@@ -117,8 +120,8 @@ public class CartController {
             response.setViewName("redirect:/product/search/");
             return response;
         }
-        OrderDetail orderDetail = OrderDetailDAO.viewcart(order.getId());
-        OrderDetail orderDetail1 = OrderDetailDAO.carttotal(order.getId());
+        OrderDetail orderDetail = orderDetailDAO.viewcart(order.getId());
+        OrderDetail orderDetail1 = orderDetailDAO.carttotal(order.getId());
         response.addObject("order", order);
         response.addObject("orderdetail", orderDetail);
         response.addObject("orderdetail1", orderDetail1);

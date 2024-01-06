@@ -35,7 +35,8 @@
                     </select>
 
                     <!-- Add to Cart Button -->
-                   <a href="/cart/viewcart?id=${product.id}&quantity=${orderdetail.quantityordered}" class="btn btn-primary">viewcart</a>
+                  <!-- <a href="/cart/viewcart?id=${product.id}&quantity=${orderdetail.quantityordered}" class="btn btn-primary">viewcart</a> -->
+                  <a href="/cart/shopping_cart?id=${product.id}&quantity=${cartItems.quantity}" class="btn btn-primary">viewcart</a>
                 </div>
             </div>
 
