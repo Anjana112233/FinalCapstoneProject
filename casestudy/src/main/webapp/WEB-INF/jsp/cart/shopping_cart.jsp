@@ -21,42 +21,12 @@
                         <td>${cartItem.product.productName}</td>
                         <td>${cartItem.quantity}</td>
                         <td>${cartItem.product.price}</td>
-                        <td>${calculateTotalPrice(cartItem)}</td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
     </div>
 
-   <!-- <div class="row">
-    <div class="col">
-        <th:block th:each="item, status : ${cartItems}">
-        <div class="row border rounded" th:with="product = ${item.product}">
-            <div class="col">
-            <div>[[${status.count}]]</div>
-            <div >
-            <div class="col">
-                <img th:src="@{${product.imageUrl}}" class="img-fluid" />
 
-            </div>
-            <div class="col">
-            <div>
-            <a>
-                <b> [[${product.productName}]] </b>
-               </a>
-             </div>
-             <div> <input type="number th:value="${item.quantity} class="form-control" /> </div>
-             <div>
-             <span>X</span>
-             <span>$[[${product.price}]]</span>
-             </div>
-             </div>
-            </div>
-        </th:block>
-    </div>
-
-    <div class = "col>"
-    </div>
-   </div> -->
 <jsp:include page="../include/footer.jsp"/>
 

@@ -2,13 +2,11 @@ package org.perscholas.casestudy.controller;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.perscholas.casestudy.database.dao.CartItemDAO;
 import org.perscholas.casestudy.database.dao.OrderDAO;
 import org.perscholas.casestudy.database.dao.OrderDetailDAO;
 import org.perscholas.casestudy.database.dao.ProductDAO;
-import org.perscholas.casestudy.database.entity.Order;
-import org.perscholas.casestudy.database.entity.OrderDetail;
-import org.perscholas.casestudy.database.entity.Product;
-import org.perscholas.casestudy.database.entity.User;
+import org.perscholas.casestudy.database.entity.*;
 import org.perscholas.casestudy.database.service.OrderDetailService;
 import org.perscholas.casestudy.database.service.OrderService;
 import org.perscholas.casestudy.formbean.CreateOrderDetailFormBean;
@@ -32,6 +30,9 @@ public class CartController {
 
     @Autowired
     private OrderDAO orderDao;
+
+    @Autowired
+    private CartItemDAO cartItemDAO;
 
     @Autowired
     private OrderDetailDAO orderDetailDAO;
@@ -88,25 +89,44 @@ public class CartController {
         response.addObject("product", product);
 
         User user = authenticatedUserService.loadCurrentUser();
-        Order order = orderDao.findCartOrdersByUserId(user.getId());
 
+        CartItem cartItem = cartItemDAO.findByUserAndProduct(user, product);
 
-        if (order == null) {
-            order = new Order();
-
-            order.setUserId(user.getId());
-
-
-            order.setOrderDate(new Date());
-            // order.setRequiredDate(order.getRequiredDate());
-            // order.setShippedDate(order.getShippedDate());
-            order.setStatus("cart");
-            orderDao.save(order);
+        if (cartItem == null) {
+            CartItem cartItemNew = new CartItem();
+            cartItemNew.setUser(user);
+            cartItemNew.setProduct(product);
+            cartItemNew.setQuantity(1);
+            cartItemDAO.save(cartItemNew);
+        } else {
+            Integer quantity = cartItem.getQuantity();
+            cartItem.setQuantity(quantity + 1);
+            cartItemDAO.save(cartItem);
         }
-       orderDetailService.createOrderDetail(product.getId(), order.getId(), 1);
-        //response.addObject("order", order);
-      //  response.addObject("product", product);
+//       orderDetailService.createOrderDetail(product.getId(), order.getId(), 1);
+//        response.addObject("cart", cartItem);
+        response.addObject("product", product);
         return response;
+
+//        Order order = orderDao.findCartOrdersByUserId(user.getId());
+//
+//
+//        if (order == null) {
+//            order = new Order();
+//
+//            order.setUserId(user.getId());
+//
+//
+//            order.setOrderDate(new Date());
+//            // order.setRequiredDate(order.getRequiredDate());
+//            // order.setShippedDate(order.getShippedDate());
+//            order.setStatus("cart");
+//            orderDao.save(order);
+//        }
+//       orderDetailService.createOrderDetail(product.getId(), order.getId(), 1);
+//        //response.addObject("order", order);
+//      //  response.addObject("product", product);
+//        return response;
 
     }
     @RequestMapping("cart/viewcart")
