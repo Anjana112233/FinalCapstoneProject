@@ -59,11 +59,6 @@
                                 <a class="nav-link" href=""><sec:authentication property="principal.username" /></a>
                            </li>
                      </sec:authorize>
-
-
-
-
-
             </ul>
         </div>
     </div>

@@ -28,7 +28,6 @@
                             </tbody>
                         </table>
                         Total Price: ${totalPrice}
-
             </div>
         </div>
     </div>

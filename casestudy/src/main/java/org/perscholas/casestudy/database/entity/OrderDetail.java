@@ -24,10 +24,6 @@ public class OrderDetail {
     @JoinColumn(name = "productid", nullable = false)
     private Product product;
 
-
-    // @Column(name = "productid")
-   // private Integer productId;
-
     @Column(name = "quantityordered")
     private Integer quantityOrdered;
 

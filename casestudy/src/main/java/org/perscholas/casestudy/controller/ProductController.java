@@ -31,7 +31,6 @@ public class ProductController {
 
         return response;
     }
-
     @GetMapping("/product/createSubmit")
     public ModelAndView createProductSubmit(CreateProductFormBean form){
         ModelAndView response = new ModelAndView("product/create");
@@ -62,7 +61,6 @@ public class ProductController {
         return response;
 
     }
-
     @GetMapping("/product/search")
     public ModelAndView search(@RequestParam(required = false) String productNameSearch) {
         ModelAndView response = new ModelAndView("product/search");

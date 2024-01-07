@@ -76,9 +76,7 @@ public class CartController {
         log.debug("In create order with incoming args");
 
         return response;
-
     }
-
     @RequestMapping("/cart/addtocart")
     public ModelAndView additem(@RequestParam Integer id) {
         ModelAndView response = new ModelAndView("cart/addtocart");
@@ -103,52 +101,10 @@ public class CartController {
             cartItem.setQuantity(quantity + 1);
             cartItemDAO.save(cartItem);
         }
-//       orderDetailService.createOrderDetail(product.getId(), order.getId(), 1);
-//        response.addObject("cart", cartItem);
         response.addObject("product", product);
         return response;
 
-//        Order order = orderDao.findCartOrdersByUserId(user.getId());
-//
-//
-//        if (order == null) {
-//            order = new Order();
-//
-//            order.setUserId(user.getId());
-//
-//
-//            order.setOrderDate(new Date());
-//            // order.setRequiredDate(order.getRequiredDate());
-//            // order.setShippedDate(order.getShippedDate());
-//            order.setStatus("cart");
-//            orderDao.save(order);
-//        }
-//       orderDetailService.createOrderDetail(product.getId(), order.getId(), 1);
-//        //response.addObject("order", order);
-//      //  response.addObject("product", product);
-//        return response;
-
     }
-//    @RequestMapping("cart/viewcart")
-//    public ModelAndView viewcart() {
-//        ModelAndView response = new ModelAndView("cart/viewcart");
-//        User user = authenticatedUserService.loadCurrentUser();
-//        //retrieve a current cart
-//        Order order= orderDao.findCartOrdersByUserId(user.getId());
-//
-//       if(order == null){
-//            response.setViewName("redirect:/product/search/");
-//            return response;
-//        }
-//        OrderDetail orderDetail = orderDetailDAO.viewcart(order.getId());
-//        OrderDetail orderDetail1 = orderDetailDAO.carttotal(order.getId());
-//        response.addObject("order", order);
-//        response.addObject("orderdetail", orderDetail);
-//        response.addObject("orderdetail1", orderDetail1);
-//
-//        return response;
-//
-//    }
 }
 
 

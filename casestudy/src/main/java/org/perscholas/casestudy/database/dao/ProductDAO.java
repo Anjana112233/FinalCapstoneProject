@@ -16,8 +16,6 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
     @Query("Select p from Product p where lower(p.productName) LIKE lower(%:productName%)")
     List<Product> findByProductName(String productName);
 
-
-
     //for testing
     @Modifying
     @Transactional

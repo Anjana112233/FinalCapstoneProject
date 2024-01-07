@@ -10,6 +10,7 @@
      <table class="table">
             <thead>
                 <tr>
+                    <th>Pic</th>
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Price</th>
@@ -18,6 +19,7 @@
             <tbody>
                 <c:forEach var="cartItem" items="${cartItems}">
                     <tr>
+                        <td><img src="${cartItem.product.imageUrl}" style="max-width:100px"></td>
                         <td>${cartItem.product.productName}</td>
                         <td>${cartItem.quantity}</td>
                         <td>${cartItem.product.price}</td>

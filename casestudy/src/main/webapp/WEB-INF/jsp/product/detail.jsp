@@ -18,7 +18,15 @@
                  		<span class="fa fa-star checked"></span>
                  	</div>
                     <p class="card-test"> Price= $${product.price} </p>
-                    <a href="/cart/addtocart?id=${product.id}" class="btn btn-primary">Add to cart</a>
+                    <label for="quantity">Quantity: </label>
+                        <select id="quantity" name="quantity">
+                            <c:forEach begin="1" end="9" var="quantityOption">
+                                <option value="${quantityOption}">
+                                    ${quantityOption}
+                                </option>
+                            </c:forEach>
+                        </select>
+                    <a href="/cart/addtocart?id=${product.id}}" class="btn btn-primary">Add to cart</a>
                 </div>
             </div>
         </table>
