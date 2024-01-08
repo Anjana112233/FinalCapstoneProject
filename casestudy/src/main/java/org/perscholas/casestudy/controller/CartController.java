@@ -90,6 +90,7 @@ public class CartController {
 
         CartItem cartItem = cartItemDAO.findByUserAndProduct(user, product);
 
+//add product to add to cart
         if (cartItem == null) {
             CartItem cartItemNew = new CartItem();
             cartItemNew.setUser(user);

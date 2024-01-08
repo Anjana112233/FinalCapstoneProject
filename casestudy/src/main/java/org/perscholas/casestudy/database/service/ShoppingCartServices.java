@@ -15,6 +15,7 @@ public class ShoppingCartServices {
     @Autowired
     private CartItemDAO cartItemDAO;
     public List<CartItem> listCartItems(User user) {
+
         return cartItemDAO.findByUser(user);
     }
 

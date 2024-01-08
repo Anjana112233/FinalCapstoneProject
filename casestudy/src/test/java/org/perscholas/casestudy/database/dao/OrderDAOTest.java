@@ -20,14 +20,15 @@ public class OrderDAOTest {
 
     @Test
     public void createOrderTest(){
+        //given
         Date date = new Date();
         String orderStatus = "Cart";
-
         logger.info("Creating a new order");
         Order order = new Order();
         order.setUserId(5);
         order.setOrderDate(date);
         order.setStatus(orderStatus);
+
         //when
         order = orderDAO.save(order);
 

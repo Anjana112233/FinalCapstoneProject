@@ -18,4 +18,6 @@ public interface OrderDAO extends JpaRepository<Order, Long> {
   @Query("Select o from Order o where o.userId = :userId order by orderDate desc limit 1 ")
  Order findLatestOrderByUserId(Integer userId);
 
+
+
 }

@@ -19,7 +19,7 @@
         </form>
 
 
-        <c:if test="${not empty productsVar}">
+       <c:if test="${not empty productsVar}">
              <c:if test="${not noSearch}">
             <h1> Products Found ${productsVar.size()}</h1>
             </c:if>

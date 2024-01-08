@@ -20,10 +20,14 @@ public class CartItemDAOTest {
     @Test
 
     public void createCartItemTest() {
+        //given
         User user = new User();
-        user.setId(8);
+        user.setId(7);
 
+        //when
         List<CartItem> cartItems = cartItemDAO.findByUser(user);
+
+        //then
        Assertions.assertEquals(0, cartItems.size());
 
     }

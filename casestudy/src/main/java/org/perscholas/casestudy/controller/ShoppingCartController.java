@@ -47,7 +47,9 @@ public class ShoppingCartController {
     @GetMapping("/cart/shopping_cart")
     public ModelAndView shopping_cart() {
         ModelAndView response = new ModelAndView("cart/shopping_cart");
+        //for user authentication
         User user = authenticatedUserService.loadCurrentUser();
+        //make a list from cart items
         List<CartItem> cartItems = shoppingCartServices.listCartItems(user);
         response.addObject("cartItems", cartItems);
         response.addObject("pageTitle", "Shopping Cart");
@@ -59,8 +61,11 @@ public class ShoppingCartController {
     @GetMapping("/cart/checkout")
     public ModelAndView checkout(){
         ModelAndView response = new ModelAndView("cart/checkout");
+        //for user authentication
         User user = authenticatedUserService.loadCurrentUser();
         List<CartItem> cartItems = shoppingCartServices.listCartItems(user);
+
+        //getting total price of product for cartitems
         Double totalPrice = 0.0;
         for (CartItem cartItem: cartItems) {
             totalPrice += cartItem.getQuantity() * cartItem.getProduct().getPrice();
@@ -99,6 +104,7 @@ public class ShoppingCartController {
 
         response.addObject("orderedItems", cartItems);
 
+       //after order placed, the cart item will be deleted from add to cart
        for (CartItem cartItem: cartItems) {
            cartItemDAO.delete(cartItem);
        }
@@ -111,6 +117,7 @@ public class ShoppingCartController {
         ModelAndView response = new ModelAndView("order/details");
         User user = authenticatedUserService.loadCurrentUser();
 
+    //to get the latest order from user
         Order order = orderDAO.findLatestOrderByUserId(user.getId());
 
         List<OrderDetail> orderDetails = orderDetailDAO.findByOrder(order);
