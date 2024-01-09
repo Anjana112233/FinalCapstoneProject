@@ -1,7 +1,11 @@
  #CaseStudy
+ 
 Himalayan Traditional Store (Ecommerce) 
-Overview
+ 
+Overview:
+
 About Himalayan traditional store for southasian clothes:
+
 The project aims to create an online platform where users can explore and purchase South Asian clothes, embracing the rich cultural diversity and traditional attire
 of the region. It provides a user-friendly interface for a seamless shopping experience.
 
