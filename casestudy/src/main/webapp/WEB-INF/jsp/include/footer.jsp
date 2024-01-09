@@ -1,5 +1,5 @@
 <section class="footer-bg-color pt-5 pb-5">
-    <div class="container">
+    <div class="container" >
         <div class="row">
             <div class="col-12">
                 CopyRight &copy; 2023

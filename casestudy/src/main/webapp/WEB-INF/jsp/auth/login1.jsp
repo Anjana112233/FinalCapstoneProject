@@ -2,10 +2,10 @@
 <jsp:include page="../include/header.jsp"/>
 
 <section>
-    <div class="bg-light2 pt-5 pb-5">
+    <div class="bg-light2 pt-3 pb-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="m-0">Login</h1>
+                <h1 class="m-0 text-dark">Login</h1>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
     </section>
 </c:if>
 
-<section class="pt-5 pb-5">
+<section class="pt-5 pb-5 m-o" style="background-image: url('/pub/images/loginpage.jpg');  background-repeat: no-repeat; background-size: cover; font-weight: 700; color:white; min-height: 72vh; display: flex; flex-direction: column;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">

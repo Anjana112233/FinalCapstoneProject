@@ -2,17 +2,17 @@
 <jsp:include page="../include/header.jsp"/>
 
 <section>
-    <div class="bg-light2 pt-5 pb-5">
+    <div class="bg-light2 pt-3 pb-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="m-0">User Registration</h1>
+                <h1 class="m-0 text-dark" >User Registration</h1>
             </div>
         </div>
     </div>
 </section>
 
 
-<section class="pt-5 pb-5">
+<section class="pt-5 pb-5 m-o" style="background-image: url('/pub/images/userregistration.jpg'); font-weight: 700; font-size-lg bg-white: 20px; min-height: 55vh; color: #DC143C !important; ">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">

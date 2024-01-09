@@ -27,7 +27,7 @@ public class UserDAOTest {
         Assertions.assertNotNull(user.getId());
         Assertions.assertEquals("test@example.com", user.getEmail());
         Assertions.assertEquals("testpassword", user.getPassword());
-        
+
 
     }
 

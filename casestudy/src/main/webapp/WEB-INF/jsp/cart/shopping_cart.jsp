@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <jsp:include page="../include/header.jsp"/>
     <div class="container mt-5">
-    <h1 class="mb-4">Your Shopping Cart</h1>
+    <h1 class="mb-4 text-dark">Your Shopping Cart</h1>
     </div>
 
     <c:if test="${not empty cartItems}">

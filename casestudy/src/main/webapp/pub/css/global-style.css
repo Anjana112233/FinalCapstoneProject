@@ -2,6 +2,28 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Ensure that the container takes at least the full height of the viewport */
+
+}
+h1{
+    color: #C6DEFF;
+}
+
+.card {
+       /* background-color: rgba(255, 255, 255, 0.95);*/
+        padding: 5px;
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        max-width: 300px; /* Increased maximum width */
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+}
+.card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
 }
 
 .search-page {
@@ -31,15 +53,6 @@ body {
        height: 100vh; /* Optionally set the height to fill the viewport */
    }
 
-   .container.text-center {
-       margin-top: 20px;
-   }
-
-   .row.justify-content-center {
-       display: flex;
-       justify-content: center;
-   }
-   /* pub/css/global-style.css */
 
    /* Existing navbar styles */
    .navbar-light .navbar-toggler-icon {
@@ -64,14 +77,7 @@ body {
    .custom-navbar.navbar-light .navbar-nav .nav-link {
        color: #fff !important; /* White color for text on the custom navbar */
    }
-   /* pub/css/global-style.css */
 
-   /* Other styles */
-
-   /* Table with white background */
-   .table-white-background {
-       background-color: #fff; /* White background color */
-   }
 
    .footer-bg-color {
        background-color: #333; /* Add your desired background color */

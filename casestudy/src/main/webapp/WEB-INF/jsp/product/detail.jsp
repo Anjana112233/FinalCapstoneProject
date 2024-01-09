@@ -26,7 +26,7 @@
                                 </option>
                             </c:forEach>
                         </select>
-                    <a href="/cart/addtocart?id=${product.id}}" class="btn btn-primary">Add to cart</a>
+                    <a href="/cart/addtocart?id=${product.id}" class="btn btn-primary">Add to cart</a>
                 </div>
             </div>
         </table>

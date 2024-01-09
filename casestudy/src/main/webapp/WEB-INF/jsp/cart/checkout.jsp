@@ -7,7 +7,7 @@
     <div class="bg-light2 pt-5 pb-5">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="m-0">Check out</h1>
+                <h1 class="m-0 text-dark">Check out</h1>
 
                 <table class="table">
                             <thead>
