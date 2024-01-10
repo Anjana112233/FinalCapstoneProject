@@ -65,9 +65,9 @@ h1{
    }
 
    /* New styles for the custom-navbar class */
-   .custom-navbar.navbar-light {
+  /* .custom-navbar.navbar-light {
        background-color: #333 !important; /* Dark background color for the custom navbar */
-   }
+   } */
 
    .custom-navbar.navbar-light .navbar-toggler-icon {
        background-color: #fff !important;

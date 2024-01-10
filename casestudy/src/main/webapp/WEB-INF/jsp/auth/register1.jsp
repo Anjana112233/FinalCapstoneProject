@@ -105,6 +105,27 @@
                                      </c:forEach>
                                  </div>
                              </c:if>
+                           <div class="mt-3">
+                                    <label for="user">Are you a User from US?</label>
+                                        <div class="form-check">
+                                             <input class="form-check-input" type="radio" name="user" id="userYes" value="yes" checked>
+                                     <label class="form-check-label" for="userYes">
+                                                    Yes
+                                      </label>
+                                           </div>
+                                                <div class="form-check">
+                                                   <input class="form-check-input" type="radio" name="user" id="userNo" value="no">
+                                                       <label class="form-check-label" for="userNo">
+                                                            No
+                                                        </label>
+                                                </div>
+                                            </div>
+                            <div class="mt-3">
+                                  <label>
+                                      <input type="checkbox" id="agree" name="agree" required>
+                                           I agree to the terms and conditions
+                                  </label>
+                           </div>
 
                   <button type="submit" class="btn btn-primary mt-4">Submit</button>
                     <!-- <a href="/auth/login1" class="btn btn-primary">Submit</a> -->

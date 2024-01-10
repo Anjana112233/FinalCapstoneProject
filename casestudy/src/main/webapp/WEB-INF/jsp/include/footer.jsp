@@ -2,7 +2,7 @@
     <div class="container" >
         <div class="row">
             <div class="col-12">
-                CopyRight &copy; 2023
+                CopyRight &copy; 2023 All Rights Reserved By Nepali community,Austin. TX
             </div>
         </div>
     </div>

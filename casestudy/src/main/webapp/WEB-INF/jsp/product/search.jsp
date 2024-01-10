@@ -27,7 +27,8 @@
                         <div class="card text-dark">
                             <img class="card-img-top" src="${product.imageUrl}" class="img-fluid" style="max-width: 300px; height: 200px; ">
                             <div class="card-body text-center">
-                                <p class="card-text"><b>Product ID:</b> ${product.id}</p>
+                                <!-- <p class="card-text"><b>Product ID:</b> ${product.id}</p> -->
+                                <p class="card-text"><b>Product Name:</b> ${product.productName}</p>
                                 <p class="card-text"><b>Product Description:</b> ${product.productDescription}</p>
                                 <p class="card-text"><b>Price:</b> ${product.price}</p>
                                 <sec:authorize access="hasAnyAuthority('ADMIN')">
@@ -40,7 +41,6 @@
                 </c:forEach>
             </div>
        </div>
-    </div>
-</section>
-
-<jsp:include page="../include/footer.jsp"/>
+         </div>
+    </section>
+ <jsp:include page="../include/footer.jsp"/>

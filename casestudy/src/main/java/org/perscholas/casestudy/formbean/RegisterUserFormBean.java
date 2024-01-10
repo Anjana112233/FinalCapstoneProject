@@ -2,6 +2,7 @@ package org.perscholas.casestudy.formbean;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,9 +24,16 @@ public class RegisterUserFormBean {
     @NotEmpty(message = "Confirm password cannot be empty")
     private String confirmPassword;
 
+    @NotEmpty(message = "First name cannot be empty")
     private String firstname;
+
+    @NotEmpty(message = "last name cannot be empty")
     private String lastname;
+
+    @NotNull(message = "phone is required.")
     private String phone;
+
+    @NotNull(message = "City is required.")
     private String city;
 }
 
